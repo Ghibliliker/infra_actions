@@ -52,10 +52,10 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
-        host: 51.250.9.89
-        username: drushlak
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9LMUoA3Ottg/5WtF91VvzjFJcipaKFmDA9O30tgq2EbbigsKIyW7aMN+GQ4r2MT2l001bQFmyqj3V7shO3bi34kuNnY+AAf3hShLTNe18uviHLI9ExBktfnIz+ib0wIDSvanz1Nd6JtQW3tn2vcNHA5QGfHmZmNmY48TP8W2HyEScWnNunYvvcp3iBl8h5qvRJid5htjS405SmVytxap+9IbNiZ93E+6TuxAGO/ApExyDF/Ejan+3TpmHhofNEux+BciyiqKsJrR34Gi17o1oR4NM4wwDFPGUyYsUvqS4Y+tRpEZ6s03n12277ltVXKRbd/eFwTBEeH0wYbR6sRh57GeCHjZAn5zuWJVryuQl6ZNFsI5JV1YTRM627NCQ+UJriHmwSKZkLoQXoGwS7tmfz4wR2QpBr8MnrtTrFFZgmEqvb4IIQYDgM7KujcxCcbkulXSARceVdJ5eaAdeVUabech9eXVi985CqpFxyDrtI96f0appW7yLIJB39DMB4t0= drushlak@DESKTOP-MV5DP57
-        passphrase: klm854po91
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }} 
         script: |
             sudo docker pull ghibliliker/infra_actions_test
             sudo docker stop $(sudo docker ps -a -q)
